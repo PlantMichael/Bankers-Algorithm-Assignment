@@ -6,38 +6,35 @@ int main() {
 
 	std::ifstream file("data.txt");
 	
-	int n; // Number of Processes
-	file >> n; // Read Number of Processes
+	int n; //Processes
+	file >> n; //Reading Processes
 	
-	int m; // Number of Resources
-	file >> m; // Read Number of Resources
+	int m; //Resources
+	file >> m; //Reading Resources
 	
-	// Allocated Resources
+	//Allocated Resources
 	int alloc[n][m];
 	for (int row = 0; row < n; row++){
 		for (int col = 0; col < m; col++)
 			file >> alloc[row][col];
 	}
 	
-	// Max Resources
+	//Max Resources
 	int max[n][m];
 	for (int row = 0; row < n; row++){
 		for (int col = 0; col < m; col++)
 			file >> max[row][col];
 	}
 	
-	// Available Resources
+	//Available Resources
 	int avail[m];
 	for (int col = 0; col < m; col++)
 		file >> avail[col];
 	
-	
-	
 	int f[n], ans[n], ind = 0;
 	int k;
-	for (k = 0; k < n; k++) {
+	for (k = 0; k < n; k++)
 		f[k] = 0;
-	}
 	
 	int need[n][m];
 	int i, j;
@@ -71,7 +68,7 @@ int main() {
 	
 	int flag = 1;
 	
-	// Check whether sequence is safe
+	//Check if sequence is safe
 	for(int i = 0; i < n; i++)
 	{
 			if(f[i] == 0)
@@ -81,7 +78,7 @@ int main() {
 			break;
 		}
 	}
-	// Print out sequence if safe
+	//Cout sequence if safe
 	if(flag == 1)
 	{
 		std::cout << "The System is in a Safe State" << std::endl;
